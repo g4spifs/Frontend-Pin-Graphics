@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PIN Graphics — Ficha de producto</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header>
+      <div class="container bar" role="navigation" aria-label="Barra superior">
+        <div class="logo" aria-label="PIN Graphics">
+        <img src="img/logo.png" alt="Logo PIN Graphics">
+        <span>PIN&nbsp;Graphics</span>
+        </div>
+        <nav aria-label="Principal">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_tabla.html">Tabla</a></li>
+            <li><a href="listado_box.html">Box</a></li>
+            <li><a href="producto.html" aria-current="page">Producto</a></li>
+            <li><a href="comprar.html">Comprar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="container">
+      <h1 class="section-title">NVIDIA GeForce RTX 4060 — 8 GB</h1>
+
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items:start;">
+        <div class="card">
+          <picture><img src="img/rtx4060.jpg" alt="Imagen NVIDIA GeForce RTX 4060"></picture>
+        </div>
+        <div class="card">
+          <div class="body">
+            <p class="price" style="font-size:1.25rem">ARS 529.000</p>
+            <p class="meta">SKU: RTX4060-8G · Marca: NVIDIA</p>
+            <ul>
+              <li>Memoria: 8 GB GDDR6</li>
+              <li>Salidas: HDMI 2.1 / DisplayPort</li>
+              <li>Tecnologías: Ray Tracing, DLSS</li>
+              <li>Fuente recomendada: 550 W</li>
+            </ul>
+            <div class="actions">
+              <a class="btn" href="listado_box.html">Volver al listado</a>
+              <a class="btn primary" href="comprar.html">Comprar ahora</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Especificaciones</h2>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><th>Arquitectura</th><td>Ada Lovelace</td></tr>
+            <tr><th>Núcleos CUDA</th><td>3072</td></tr>
+            <tr><th>Memoria</th><td>8 GB GDDR6</td></tr>
+            <tr><th>Bus de memoria</th><td>128-bit</td></tr>
+            <tr><th>Consumo (TGP)</th><td>115 W</td></tr>
+            <tr><th>Conectores</th><td>1× 8-pin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:.5rem"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg><span>PIN&nbsp;Graphics</span></div>
+          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © 2025</p>
+        </div>
+        <div>
+          <strong>Secciones</strong>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_tabla.html">Tabla</a></li>
+            <li><a href="listado_box.html">Box</a></li>
+            <li><a href="producto.html">Producto</a></li>
+            <li><a href="comprar.html">Comprar</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Legales</strong>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

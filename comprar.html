@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PIN Graphics — Comprar</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header>
+      <div class="container bar" role="navigation" aria-label="Barra superior">
+        <div class="logo" aria-label="PIN Graphics">
+        <img src="img/logo.png" alt="Logo PIN Graphics">
+        <span>PIN&nbsp;Graphics</span>
+        </div>
+        <nav aria-label="Principal">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_tabla.html">Tabla</a></li>
+            <li><a href="listado_box.html">Box</a></li>
+            <li><a href="producto.html">Producto</a></li>
+            <li><a href="comprar.html" aria-current="page">Comprar</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido" class="container">
+      <h1 class="section-title">Formulario de compra</h1>
+      <p class="notice">Complete sus datos para finalizar la compra.</p>
+
+      <form method="post" action="#">
+        <div class="form-row">
+          <div>
+            <label for="nombre">Nombre del cliente</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+54 9 351 ..." autocomplete="tel" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="correo@dominio.com" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Calle 123, Ciudad, Provincia" autocomplete="street-address" required>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Medio de pago</legend>
+          <label class="inline"><input type="radio" name="pago" value="tarjeta" required> Tarjeta de crédito/débito</label>
+          <label class="inline"><input type="radio" name="pago" value="transferencia"> Transferencia bancaria</label>
+          <label class="inline"><input type="radio" name="pago" value="mercado-pago"> Mercado Pago</label>
+        </fieldset>
+
+        <h2 class="section-title">Listado de productos</h2>
+        <div class="table-wrap" role="region" aria-label="Productos seleccionados">
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th><th>VRAM</th><th>Precio (ARS)</th><th>Cant.</th><th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NVIDIA GeForce RTX 4060</td><td>8 GB</td><td>529.000</td><td>1</td><td>529.000</td>
+              </tr>
+              <tr>
+                <td>AMD Radeon RX 7700 XT</td><td>12 GB</td><td>589.000</td><td>1</td><td>589.000</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="4" style="text-align:right">Total</th><th>1.118.000</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="form-row">
+          <button class="btn primary" type="submit">Confirmar compra</button>
+          <a class="btn" href="listado_box.html">Seguir comprando</a>
+        </div>
+        <p class="notice">Formulario demostrativo sin procesamiento real.</p>
+      </form>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:.5rem"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg><span>PIN&nbsp;Graphics</span></div>
+          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © 2025</p>
+        </div>
+        <div>
+          <strong>Secciones</strong>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_tabla.html">Tabla</a></li>
+            <li><a href="listado_box.html">Box</a></li>
+            <li><a href="producto.html">Producto</a></li>
+            <li><a href="comprar.html">Comprar</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Legales</strong>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
