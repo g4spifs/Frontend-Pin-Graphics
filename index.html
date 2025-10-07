@@ -14,34 +14,29 @@
   <body class="home">
     <header>
       <div class="container bar">
-        <button
-          class="icon nav-toggle"
-          data-nav-toggle
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
-          ☰
-        </button>
+        <button class="icon nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
 
         <div class="left">
-          <img
-            class="brand-logo"
-            src="img/logo.png"
-            alt="Logo PIN Graphics"
-          />
+          <img class="brand-logo" src="img/logo.png" alt="Logo PIN Graphics">
           <span class="brand-name">PIN&nbsp;Graphics</span>
-          <button
-            class="icon theme-btn"
-            data-theme-toggle
-            aria-label="Cambiar tema"
-          >
-            🌓
-          </button>
+          <button class="icon theme-btn" data-theme-toggle aria-label="Cambiar tema">🌓</button>
         </div>
 
+        <form class="site-search" role="search" aria-label="Buscar productos" onsubmit="return false">
+          <label for="q" class="visually-hidden">Buscar</label>
+          <input id="q" name="q" type="search" placeholder="Buscar productos…">
+          <button class="search-btn" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </form>
+
+      
         <nav class="right" aria-label="Principal">
           <ul data-nav>
-            <li><a href="index.html" aria-current="page">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="listado_tabla.html">Tabla</a></li>
             <li><a href="listado_box.html">Box</a></li>
             <li><a href="producto.html">Producto</a></li>
