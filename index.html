@@ -1,24 +1,46 @@
 <!doctype html>
 <html lang="es-AR">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PIN Graphics — Inicio</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Venta de tarjetas gráficas NVIDIA y AMD con fichas técnicas y compra segura.">
+    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Venta de tarjetas gráficas NVIDIA y AMD. Catálogo con fichas técnicas y precios actualizados."
+    />
   </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
+  <body class="home">
     <header>
-      <div class="container bar" role="navigation" aria-label="Barra superior">
-        <div class="logo" aria-label="PIN Graphics">
-        <img src="img/logo.png" alt="Logo PIN Graphics">
-        <span>PIN&nbsp;Graphics</span>
-    </div>
+      <div class="container bar">
+        <button
+          class="icon nav-toggle"
+          data-nav-toggle
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
 
-        <nav aria-label="Principal">
-          <ul>
+        <div class="left">
+          <img
+            class="brand-logo"
+            src="img/logo.png"
+            alt="Logo PIN Graphics"
+          />
+          <span class="brand-name">PIN&nbsp;Graphics</span>
+          <button
+            class="icon theme-btn"
+            data-theme-toggle
+            aria-label="Cambiar tema"
+          >
+            🌓
+          </button>
+        </div>
+
+        <nav class="right" aria-label="Principal">
+          <ul data-nav>
             <li><a href="index.html" aria-current="page">Inicio</a></li>
             <li><a href="listado_tabla.html">Tabla</a></li>
             <li><a href="listado_box.html">Box</a></li>
@@ -29,52 +51,74 @@
       </div>
     </header>
 
-    <main id="contenido">
-      <section class="hero" aria-labelledby="titulo-hero">
-        <div class="container">
-          <h1 id="titulo-hero">Venta de tarjetas gráficas NVIDIA y AMD</h1>
-          <p>Catálogo actualizado, fichas técnicas claras y compra segura. Enviamos a todo el país.</p>
-        </div>
+    <main id="contenido" class="container">
+      <section class="hero">
+        <h1>Venta de tarjetas gráficas NVIDIA y AMD</h1>
+        <p>
+          Elegí tu próxima GPU y descubrí el poder del rendimiento gráfico con
+          las mejores marcas del mercado.
+        </p>
       </section>
 
-      <section class="container" aria-labelledby="destacados">
-        <h2 id="destacados" class="section-title">Destacados</h2>
+      <section class="productos">
+        <h2 class="section-title">Productos destacados</h2>
         <div class="grid">
-          <article class="card">
-            <picture><img src="img/rtx4060.jpg" alt="NVIDIA GeForce RTX 4060"></picture>
+          
+          <article class="card" data-name="nvidia geforce rtx 4060 8gb">
+            <picture>
+              <img
+                src="img/rtx4060.jpg"
+                alt="NVIDIA GeForce RTX 4060"
+                width="300"
+                height="180"
+              />
+            </picture>
             <div class="body">
-              <h3>NVIDIA GeForce RTX 4060 8 GB <span class="badge">Nuevo</span></h3>
-              <p class="meta">GDDR6 · Ray Tracing · DLSS</p>
+              <h3>NVIDIA GeForce RTX 4060 8 GB</h3>
+              <p class="meta">GDDR6 • HDMI/DP • Ray Tracing</p>
               <p class="price">ARS 529.000</p>
               <div class="actions">
-                <a class="btn" href="producto.html">Ver ficha</a>
-                <a class="btn primary" href="comprar.html">Comprar</a>
+                <a class="btn" href="producto.html?id=rtx4060">Ver ficha</a>
               </div>
             </div>
           </article>
 
-          <article class="card">
-            <picture><img src="img/rx7700xt.png" alt="AMD Radeon RX 7700 XT"></picture>
+         
+          <article class="card" data-name="amd radeon rx 7700 xt 12gb">
+            <picture>
+              <img
+                src="img/rx7700xt.png"
+                alt="AMD Radeon RX 7700 XT"
+                width="300"
+                height="180"
+              />
+            </picture>
             <div class="body">
               <h3>AMD Radeon RX 7700 XT 12 GB</h3>
-              <p class="meta">GDDR6 · RDNA 3 · DP 2.1</p>
+              <p class="meta">GDDR6 • HDMI/DP • RDNA 3</p>
               <p class="price">ARS 589.000</p>
               <div class="actions">
-                <a class="btn" href="producto.html">Ver ficha</a>
-                <a class="btn primary" href="comprar.html">Comprar</a>
+                <a class="btn" href="producto.html?id=rx7700xt">Ver ficha</a>
               </div>
             </div>
           </article>
 
-          <article class="card">
-            <picture><img src="img/rx6800xt.jpg" alt="AMD Radeon RX 6800 XT"></picture>
+          
+          <article class="card" data-name="amd radeon rx 6800 xt 16gb">
+            <picture>
+              <img
+                src="img/rx6800xt.jpg"
+                alt="AMD Radeon RX 6800 XT"
+                width="300"
+                height="180"
+              />
+            </picture>
             <div class="body">
               <h3>AMD Radeon RX 6800 XT 16 GB</h3>
-              <p class="meta">GDDR6 · RDNA 2 · SAM</p>
+              <p class="meta">GDDR6 • HDMI/DP • Ray Tracing • SAM</p>
               <p class="price">ARS 799.000</p>
               <div class="actions">
-                <a class="btn" href="producto.html">Ver ficha</a>
-                <a class="btn primary" href="comprar.html">Comprar</a>
+                <a class="btn" href="producto.html?id=rx6800xt">Ver ficha</a>
               </div>
             </div>
           </article>
@@ -85,8 +129,26 @@
     <footer>
       <div class="container footer-grid">
         <div>
-          <div class="logo" style="margin-bottom:.5rem"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg><span>PIN&nbsp;Graphics</span></div>
-          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © 2025</p>
+          <div class="logo" style="margin-bottom:.5rem">
+            <svg
+              aria-hidden="true"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 7h12l6 5-6 5H3V7z"
+                stroke="#38bdf8"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+            <span>PIN&nbsp;Graphics</span>
+          </div>
+          <p class="small">
+            PIN Graphics. Venta de tarjetas gráficas. ©
+            <span data-year></span>
+          </p>
         </div>
         <div>
           <strong>Secciones</strong>
@@ -107,5 +169,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="app.js" defer></script>
   </body>
 </html>

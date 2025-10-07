@@ -6,17 +6,35 @@
     <title>PIN Graphics — Ficha de producto</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+
+  
+  <body class="page-producto">
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
+    
     <header>
-      <div class="container bar" role="navigation" aria-label="Barra superior">
-        <div class="logo" aria-label="PIN Graphics">
-        <img src="img/logo.png" alt="Logo PIN Graphics">
-        <span>PIN&nbsp;Graphics</span>
+      <div class="container bar">
+        <button class="icon nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+        <div class="left">
+          <img class="brand-logo" src="img/logo.png" alt="Logo PIN Graphics">
+          <span class="brand-name">PIN&nbsp;Graphics</span>
+          <button class="icon theme-btn" data-theme-toggle aria-label="Cambiar tema">🌓</button>
         </div>
-        <nav aria-label="Principal">
-          <ul>
+
+        <form class="site-search" role="search" aria-label="Buscar productos" onsubmit="return false">
+          <label for="q" class="visually-hidden">Buscar</label>
+          <input id="q" name="q" type="search" placeholder="Buscar productos…">
+          <button class="search-btn" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </form>
+
+        <nav class="right" aria-label="Principal">
+          <ul data-nav>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="listado_tabla.html">Tabla</a></li>
             <li><a href="listado_box.html">Box</a></li>
@@ -27,51 +45,38 @@
       </div>
     </header>
 
+    
     <main id="contenido" class="container">
-      <h1 class="section-title">NVIDIA GeForce RTX 4060 — 8 GB</h1>
+      <h1 class="section-title" data-name>Nombre del producto</h1>
 
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items:start;">
-        <div class="card">
-          <picture><img src="img/rtx4060.jpg" alt="Imagen NVIDIA GeForce RTX 4060"></picture>
+      <div class="product-layout">
+        <div class="product-media card">
+          <img data-img src="img/placeholder.png" alt="" />
         </div>
-        <div class="card">
-          <div class="body">
-            <p class="price" style="font-size:1.25rem">ARS 529.000</p>
-            <p class="meta">SKU: RTX4060-8G · Marca: NVIDIA</p>
-            <ul>
-              <li>Memoria: 8 GB GDDR6</li>
-              <li>Salidas: HDMI 2.1 / DisplayPort</li>
-              <li>Tecnologías: Ray Tracing, DLSS</li>
-              <li>Fuente recomendada: 550 W</li>
-            </ul>
-            <div class="actions">
-              <a class="btn" href="listado_box.html">Volver al listado</a>
-              <a class="btn primary" href="comprar.html">Comprar ahora</a>
-            </div>
+
+        <aside class="product-info card">
+          <p class="price" data-price>ARS 0</p>
+          <p class="meta">SKU: <span data-sku></span> · Marca: <span data-brand></span></p>
+
+          <ul class="bullets" data-specs></ul>
+
+          <div class="actions">
+            <a class="btn" href="listado_box.html">Volver al listado</a>
+            <a class="btn primary" data-buy href="comprar.html">Comprar ahora</a>
           </div>
-        </div>
-      </div>
-
-      <h2 class="section-title">Especificaciones</h2>
-      <div class="table-wrap">
-        <table>
-          <tbody>
-            <tr><th>Arquitectura</th><td>Ada Lovelace</td></tr>
-            <tr><th>Núcleos CUDA</th><td>3072</td></tr>
-            <tr><th>Memoria</th><td>8 GB GDDR6</td></tr>
-            <tr><th>Bus de memoria</th><td>128-bit</td></tr>
-            <tr><th>Consumo (TGP)</th><td>115 W</td></tr>
-            <tr><th>Conectores</th><td>1× 8-pin</td></tr>
-          </tbody>
-        </table>
+        </aside>
       </div>
     </main>
+
 
     <footer>
       <div class="container footer-grid">
         <div>
-          <div class="logo" style="margin-bottom:.5rem"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg><span>PIN&nbsp;Graphics</span></div>
-          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © 2025</p>
+          <div class="logo" style="margin-bottom:.5rem">
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg>
+            <span>PIN&nbsp;Graphics</span>
+          </div>
+          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © <span data-year></span></p>
         </div>
         <div>
           <strong>Secciones</strong>
@@ -92,5 +97,8 @@
         </div>
       </div>
     </footer>
+
+
+    <script src="app.js" defer></script>
   </body>
 </html>

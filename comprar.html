@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PIN Graphics — Comprar</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Compra de tarjetas gráficas NVIDIA y AMD.">
   </head>
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
-
     <header>
-      <div class="container bar" role="navigation" aria-label="Barra superior">
-        <div class="logo" aria-label="PIN Graphics">
-        <img src="img/logo.png" alt="Logo PIN Graphics">
-        <span>PIN&nbsp;Graphics</span>
+      <div class="container bar">
+        <button class="icon nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+        <div class="left">
+          <img class="brand-logo" src="img/logo.png" alt="Logo PIN Graphics">
+          <span class="brand-name">PIN&nbsp;Graphics</span>
+          <button class="icon theme-btn" data-theme-toggle aria-label="Cambiar tema">🌓</button>
         </div>
-        <nav aria-label="Principal">
-          <ul>
+
+        <nav class="right" aria-label="Principal">
+          <ul data-nav>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="listado_tabla.html">Tabla</a></li>
             <li><a href="listado_box.html">Box</a></li>
@@ -31,7 +34,7 @@
       <h1 class="section-title">Formulario de compra</h1>
       <p class="notice">Complete sus datos para finalizar la compra.</p>
 
-      <form method="post" action="#">
+      <form method="post" action="#" data-checkout>
         <div class="form-row">
           <div>
             <label for="nombre">Nombre del cliente</label>
@@ -62,33 +65,37 @@
         </fieldset>
 
         <h2 class="section-title">Listado de productos</h2>
-        <div class="table-wrap" role="region" aria-label="Productos seleccionados">
-          <table>
+        <div class="table-wrap" role="region" aria-label="Carrito">
+          <table data-cart>
             <thead>
               <tr>
-                <th>Producto</th><th>VRAM</th><th>Precio (ARS)</th><th>Cant.</th><th>Subtotal</th>
+                <th>Producto</th>
+                <th>Marca</th>
+                <th>SKU</th>
+                <th>VRAM</th>
+                <th>Precio</th>
+                <th>Cant.</th>
+                <th class="right">Subtotal</th>
+                <th class="center">Quitar</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>NVIDIA GeForce RTX 4060</td><td>8 GB</td><td>529.000</td><td>1</td><td>529.000</td>
-              </tr>
-              <tr>
-                <td>AMD Radeon RX 7700 XT</td><td>12 GB</td><td>589.000</td><td>1</td><td>589.000</td>
-              </tr>
-            </tbody>
+            <tbody data-cart-body><!-- JS inserta filas --></tbody>
             <tfoot>
               <tr>
-                <th colspan="4" style="text-align:right">Total</th><th>1.118.000</th>
+                <th colspan="6" class="right">Total</th>
+                <th class="right" data-cart-total>ARS 0</th>
+                <th></th>
               </tr>
             </tfoot>
           </table>
         </div>
 
-        <div class="form-row">
-          <button class="btn primary" type="submit">Confirmar compra</button>
+        <div style="display:flex; gap:.75rem; margin-top:.75rem;">
+          <button type="button" class="btn" data-empty-cart>Vaciar carrito</button>
           <a class="btn" href="listado_box.html">Seguir comprando</a>
+          <button class="btn primary" type="submit">Confirmar compra</button>
         </div>
+
         <p class="notice">Formulario demostrativo sin procesamiento real.</p>
       </form>
     </main>
@@ -96,8 +103,10 @@
     <footer>
       <div class="container footer-grid">
         <div>
-          <div class="logo" style="margin-bottom:.5rem"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg><span>PIN&nbsp;Graphics</span></div>
-          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © 2025</p>
+          <div class="logo" style="margin-bottom:.5rem">
+            <span>PIN&nbsp;Graphics</span>
+          </div>
+          <p class="small">PIN Graphics. © <span data-year></span></p>
         </div>
         <div>
           <strong>Secciones</strong>
@@ -118,5 +127,8 @@
         </div>
       </div>
     </footer>
+
+    <!-- El JS siempre dentro del body -->
+    <script src="app.js" defer></script>
   </body>
 </html>
