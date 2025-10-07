@@ -130,7 +130,7 @@ button.icon {
   --nav-hover: #1f2937;
 }
 
-/* 🌙 Paleta modo oscuro (se aplica cuando el html tiene data-theme="dark") */
+/*  Paleta modo oscuro  */
 :root[data-theme="dark"] {
   --bg:        #0b1020;
   --ink:       #e5e7eb;
@@ -144,7 +144,7 @@ button.icon {
   --nav-hover: #172038;
 }
 
-/* ⚡ Transiciones suaves al cambiar de tema */
+/* Transiciones suaves al cambiar de tema */
 html, body, header, footer, .card, .table-wrap {
   transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
@@ -235,19 +235,19 @@ footer a {
 
 /* Encabezado de tabla con buen contraste en ambos temas */
 :root {
-  --table-head-bg: #f1f5f9;   /* claro */
-  --table-head-ink: #0f172a;  /* texto oscuro */
+  --table-head-bg: #f1f5f9;   
+  --table-head-ink: #0f172a;  
 }
 :root[data-theme="dark"] {
-  --table-head-bg: #0f172a;   /* fondo oscuro */
-  --table-head-ink: #e5e7eb;  /* texto claro */
+  --table-head-bg: #0f172a;   
+  --table-head-ink: #e5e7eb;  
 }
 
 .table-wrap thead th {
   background: var(--table-head-bg) !important;
   color: var(--table-head-ink) !important;
   font-weight: 700;
-  opacity: 1;                /* por si algún reset aplica opacidad */
+  opacity: 1;                
 }
 
 header .bar {
@@ -280,7 +280,7 @@ button.icon {
 /* Header a los bordes: izquierda (logo+marca+tema) y derecha (nav) */
 header .container { 
   max-width: 100%;          /* que el header ocupe todo el ancho */
-  padding-inline: 0;        /* sin padding lateral */
+  padding-inline: 0;        
 }
 header .bar {
   display: flex;
@@ -288,7 +288,7 @@ header .bar {
   width: 100%;
 }
 
-/* IZQUIERDA pegada al borde con un pequeño respiro */
+/* IZQUIERDA  */
 header .left {
   display: flex;
   align-items: center;
@@ -296,7 +296,7 @@ header .left {
   margin-left: 12px;        
 }
 
-/* DERECHA pegada al borde derecho */
+/* DERECHA  */
 header .right { 
   margin-left: auto;        
   margin-right: 12px;       
@@ -330,15 +330,15 @@ header { border-top: 0; border-bottom: 0; }
 
 /* Fondo y texto al pasar el cursor */
 .table-wrap tbody tr:hover {
-  background: var(--brand);     /* usa el color principal */
-  color: #fff !important;       /* texto blanco para contraste */
+  background: var(--brand);     
+  color: #fff !important;      
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Mantiene contraste en modo oscuro */
 :root[data-theme="dark"] .table-wrap tbody tr:hover {
-  background: #1e293b;          /* tono gris-azulado oscuro */
-  color: var(--ink);            /* texto claro según tema */
+  background: #1e293b;          
+  color: var(--ink);            
 }
 
 /* Asegura que los enlaces en hover sigan visibles */
@@ -349,7 +349,7 @@ header { border-top: 0; border-bottom: 0; }
   color: var(--brand) !important;
 }
 
-/* Desktop: menú visible y horizontal */
+/* menú visible y horizontal */
 @media (min-width: 801px) {
   nav ul[data-nav] {
     display: flex !important;
@@ -481,7 +481,7 @@ button.icon.danger {
 }
 :root[data-theme="dark"] button.icon.danger { background: #331a1a; color: #fecaca; }
 
-/* ====== Hero (cartel) ====== */
+/*  Hero (cartel) */
 .hero {
   /* tamaño/espaciado */
   margin: 1rem 0 2rem;        
