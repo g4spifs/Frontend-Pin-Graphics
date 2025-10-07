@@ -1,6 +1,4 @@
-/******************************
- * NAV: menú móvil (hamburger)
- ******************************/
+/* NAV: menú móvil (hamburger)*/
 const navToggle = document.querySelector('[data-nav-toggle]');
 const navMenu = document.querySelector('[data-nav]');
 if (navToggle && navMenu) {
@@ -10,9 +8,7 @@ if (navToggle && navMenu) {
   });
 }
 
-/******************************
- * TEMA: modo oscuro persistente
- ******************************/
+/* TEMA: modo oscuro persistente*/
 const root = document.documentElement;
 const THEME_KEY = 'gpu-theme';
 const themeBtn = document.querySelector('[data-theme-toggle]');
@@ -35,9 +31,7 @@ if (themeBtn) {
   });
 }
 
-/******************************
- * BUSCADOR en vivo (tabla/box)
- ******************************/
+/* BUSCADOR en vivo (tabla/box)*/
 function liveFilter() {
   const q = document.querySelector('#q');
   if (!q) return;
@@ -56,9 +50,7 @@ function liveFilter() {
 }
 liveFilter();
 
-/******************************
- * CATÁLOGO
- ******************************/
+/* CATÁLOGO*/
 const CATALOG = {
   rtx4060: {
     id: "rtx4060",
@@ -108,7 +100,7 @@ const CATALOG = {
     brand: "AMD",
     sku: "RX7700XT-12G",
     price: 589000,
-    img: "img/rx7700xt.png", // asegurate que el archivo exista con ese nombre/extensión
+    img: "img/rx7700xt.png", 
     specs: [
       "Memoria: 12 GB GDDR6",
       "Salidas: HDMI 2.1 / DisplayPort",
@@ -121,9 +113,7 @@ const CATALOG = {
 const fmtARS  = (n) => new Intl.NumberFormat('es-AR').format(n);
 const getParam = (k) => new URLSearchParams(location.search).get(k);
 
-/******************************
- * FICHA DINÁMICA (producto.html)
- ******************************/
+/* FICHA DINÁMICA*/
 function renderProductPage() {
   if (!document.body.classList.contains('page-producto')) return;
 
@@ -158,9 +148,7 @@ function renderProductPage() {
 }
 renderProductPage();
 
-/******************************
- * CARRITO (localStorage)
- ******************************/
+/* CARRITO (localStorage)*/
 const CART_KEY = 'gpu-cart';
 
 function cartLoad() {
@@ -196,9 +184,7 @@ function cartDetailed() {
   return { rows, total };
 }
 
-/*****************************************
- * RENDER DEL CARRITO (comprar.html)
- *****************************************/
+/* RENDER DEL CARRITO (comprar.html)*/
 function renderCartPage() {
   const table   = document.querySelector('[data-cart]');
   const body    = document.querySelector('[data-cart-body]');
@@ -252,7 +238,6 @@ function renderCartPage() {
     draw();
   });
 
-  // Si llegan con ?id=... desde listados/ficha, agrego y limpio URL
   const pid = new URLSearchParams(location.search).get('id');
   if (pid && CATALOG[pid]) {
     cartAdd(pid, 1);
@@ -263,10 +248,8 @@ function renderCartPage() {
 }
 renderCartPage();
 
-/*****************************************
- * AGREGAR AL CARRITO desde listados/ficha
- *****************************************/
-// Listados (tabla/box): <a data-add="id" href="comprar.html">Comprar</a>
+/* AGREGAR AL CARRITO desde listados/ficha*/
+// Listados (tabla/box)
 document.addEventListener('click', (e) => {
   const add = e.target.closest('[data-add]');
   if (!add) return;
@@ -274,7 +257,6 @@ document.addEventListener('click', (e) => {
   const id = add.getAttribute('data-add');
   if (!CATALOG[id]) return;
   cartAdd(id, 1);
-  // redirige a comprar siempre
   window.location.href = 'comprar.html';
 });
 
@@ -291,8 +273,11 @@ document.addEventListener('click', (e) => {
   });
 })();
 
-/******************************
- * FOOTER: año automático
- ******************************/
+/* FOOTER: año automático*/
 const yearSpan = document.querySelector('[data-year]');
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+
+
+
+
