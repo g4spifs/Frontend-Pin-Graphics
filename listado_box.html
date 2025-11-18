@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PIN Graphics – Listado en box</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header>
+    <div class="container bar">
+      <button class="icon nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      <div class="left">
+        <img class="brand-logo" src="img/logo.png" alt="Logo PIN Graphics">
+        <span class="brand-name">PIN&nbsp;Graphics</span>
+        <button class="icon theme-btn" data-theme-toggle aria-label="Cambiar tema">🌓</button>
+      </div>
+
+      <form class="site-search" role="search" aria-label="Buscar productos" onsubmit="return false">
+        <label for="q" class="visually-hidden">Buscar</label>
+        <input id="q" name="q" type="search" placeholder="Buscar productos…">
+        <button class="search-btn" aria-label="Buscar">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                  fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <nav class="right" aria-label="Principal">
+        <ul data-nav>
+          <!-- Enlaces visibles siempre (excepto para admin) -->
+          <li data-not-admin><a href="index.html">Inicio</a></li>
+          <li data-not-admin><a href="listado_box.html">Productos</a></li>
+          
+          <!-- Enlaces para usuarios NO logueados -->
+          <li data-logged-out><a href="registro.html">Crear cuenta</a></li>
+          <li data-logged-out><a href="login.html">Ingresar</a></li>
+          
+          <!-- Menú desplegable para usuarios logueados -->
+          <li data-logged-in style="display:none;" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-user-menu>
+              <span data-user-name>Usuario</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" style="margin-left:.3rem;">
+                <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </a>
+            <ul class="dropdown-menu" data-dropdown-menu>
+              <!-- ========== OPCIONES SOLO PARA ADMIN ========== -->
+              <li data-admin-only style="display:none;">
+                <a href="index.html">🏠 Inicio</a>
+              </li>
+              <li data-admin-only style="display:none;">
+                <a href="listado_box.html">📦 Productos</a>
+              </li>
+              <li data-admin-only style="display:none;">
+                <a href="admin.php">⚙️ Panel Admin</a>
+              </li>
+              <li data-admin-only style="display:none;" class="divider"></li>
+              
+              <!-- ========== OPCIONES SOLO PARA CLIENTES ========== -->
+              <li data-client-only style="display:none;">
+                <a href="perfil.html">👤 Mi Perfil</a>
+              </li>
+              <li data-client-only style="display:none;" class="divider"></li>
+              
+              <!-- ========== OPCIÓN COMÚN PARA TODOS ========== -->
+              <li>
+                <a href="logout.php">🚪 Cerrar Sesión</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+    <main id="contenido" class="container">
+      <h1 class="section-title">Listado de productos (box)</h1>
+      
+      <!-- Contenedor vacío que se llenará dinámicamente -->
+      <div class="grid" data-product-grid>
+        <!-- Los productos se cargarán aquí con JavaScript -->
+        <p style="text-align:center; padding:2rem; color:var(--muted);">Cargando productos...</p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:.5rem"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/></svg><span>PIN&nbsp;Graphics</span></div>
+          <p class="small">PIN Graphics. Venta de tarjetas gráficas. © <span data-year></span></p>
+        </div>
+        <div>
+          <strong>Secciones</strong>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_tabla.html">Tabla</a></li>
+            <li><a href="listado_box.html">Box</a></li>
+            <li><a href="producto.html">Producto</a></li>
+            <li><a href="comprar.html">Comprar</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Legales</strong>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
+</html>

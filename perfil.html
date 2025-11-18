@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>PIN Graphics – Mi Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .profile-container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 2rem;
+      }
+      
+      .profile-sidebar {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        height: fit-content;
+      }
+      
+      .profile-photo-container {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1.5rem;
+      }
+      
+      .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--brand);
+      }
+      
+      .photo-upload-btn {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        background: var(--brand);
+        border: 2px solid var(--card);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+        font-size: 1.2rem;
+      }
+      
+      .photo-upload-btn:hover {
+        filter: brightness(1.1);
+      }
+      
+      .profile-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+        color: var(--ink);
+      }
+      
+      .profile-email {
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+      
+      .profile-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      .stat-box {
+        background: var(--bg);
+        padding: 1rem;
+        border-radius: .75rem;
+      }
+      
+      .stat-number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--brand);
+      }
+      
+      .stat-label {
+        font-size: .85rem;
+        color: var(--muted);
+        margin-top: .25rem;
+      }
+      
+      .profile-main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .profile-section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+      
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+      
+      .info-label {
+        font-size: .85rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: .5px;
+      }
+      
+      .info-value {
+        font-size: 1rem;
+        color: var(--ink);
+        font-weight: 500;
+      }
+      
+      .order-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: .75rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+      }
+      
+      .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      
+      .order-number {
+        font-weight: 700;
+        color: var(--ink);
+      }
+      
+      .order-status {
+        padding: .35rem .75rem;
+        border-radius: .5rem;
+        font-size: .85rem;
+        font-weight: 600;
+      }
+      
+      .status-completed {
+        background: #dcfce7;
+        color: #166534;
+      }
+      
+      .status-pending {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      
+      .order-details {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: .5rem;
+        font-size: .9rem;
+        color: var(--muted);
+      }
+      
+      .order-total {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ok);
+        text-align: right;
+      }
+      
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--muted);
+      }
+      
+      @media (max-width: 900px) {
+        .profile-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container bar">
+        <button class="icon nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+        <div class="left">
+          <img class="brand-logo" src="img/logo.png" alt="Logo PIN Graphics">
+          <span class="brand-name">PIN&nbsp;Graphics</span>
+          <button class="icon theme-btn" data-theme-toggle aria-label="Cambiar tema">🌓</button>
+        </div>
+
+        <form class="site-search" role="search" aria-label="Buscar productos" onsubmit="return false">
+          <label for="q" class="visually-hidden">Buscar</label>
+          <input id="q" name="q" type="search" placeholder="Buscar productos…">
+          <button class="search-btn" aria-label="Buscar">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </form>
+
+        <nav class="right" aria-label="Principal">
+          <ul data-nav>
+            <li data-not-admin><a href="index.html">Inicio</a></li>
+            <li data-not-admin><a href="listado_box.html">Productos</a></li>
+            <li data-logged-out><a href="registro.html">Crear cuenta</a></li>
+            <li data-logged-out><a href="login.html">Ingresar</a></li>
+            <li data-logged-in style="display:none;" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-user-menu>
+                <span data-user-name>Usuario</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" style="margin-left:.3rem;">
+                  <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </a>
+              <ul class="dropdown-menu" data-dropdown-menu>
+                <li data-admin-only style="display:none;"><a href="index.html">🏠 Inicio</a></li>
+                <li data-admin-only style="display:none;"><a href="listado_box.html">📦 Productos</a></li>
+                <li data-admin-only style="display:none;"><a href="admin.php">⚙️ Panel Admin</a></li>
+                <li data-admin-only style="display:none;" class="divider"></li>
+                <li data-client-only style="display:none;"><a href="perfil.html">👤 Mi Perfil</a></li>
+                <li data-client-only style="display:none;" class="divider"></li>
+                <li><a href="logout.php">🚪 Cerrar Sesión</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="profile-container" data-profile-container>
+        <!-- El contenido se cargará dinámicamente -->
+        <p style="text-align:center; padding:2rem; color:var(--muted); grid-column: 1/-1;">Cargando perfil...</p>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:.5rem">
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M3 7h12l6 5-6 5H3V7z" stroke="#38bdf8" stroke-width="1.5" fill="none"/>
+            </svg>
+            <span>PIN&nbsp;Graphics</span>
+          </div>
+          <p class="small">PIN Graphics. © <span data-year></span></p>
+        </div>
+        <div>
+          <strong>Secciones</strong>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="listado_box.html">Productos</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Legales</strong>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

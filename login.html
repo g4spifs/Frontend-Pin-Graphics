@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PIN Graphics – Ingresar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body { 
+        display: grid; 
+        place-items: center; 
+        min-height: 100vh; 
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      }
+      .form-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 2.5rem;
+        border-radius: 1.2rem;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      }
+      .form-box .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .6rem;
+        margin-bottom: 1.5rem;
+      }
+      .form-box .logo img {
+        height: 48px;
+      }
+      .form-box h1 { 
+        margin: 0 0 .5rem; 
+        text-align: center;
+        font-size: 1.75rem;
+      }
+      .form-box .subtitle {
+        text-align: center;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+        font-size: .95rem;
+      }
+      .form-box form { display: grid; gap: 1rem; }
+      .form-box .form-field { display: grid; gap: .35rem; }
+      .form-box button { 
+        background: var(--brand); 
+        color: #fff;
+        margin-top: .5rem;
+        padding: .75rem;
+        font-weight: 600;
+      }
+      .form-box button:hover {
+        filter: brightness(1.1);
+      }
+      .error { 
+        background: #fee2e2; 
+        color: #991b1b; 
+        padding: .85rem; 
+        border-radius: .6rem;
+        font-size: .9rem;
+        text-align: center;
+      }
+      .divider {
+        text-align: center;
+        margin: 1.5rem 0 1rem;
+        color: var(--muted);
+        font-size: .9rem;
+      }
+      .secondary-link {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: .95rem;
+      }
+      .secondary-link a {
+        color: var(--brand);
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="form-box">
+      <div class="logo">
+        <img src="img/logo.png" alt="PIN Graphics">
+        <span style="font-weight: 700; font-size: 1.2rem;">PIN Graphics</span>
+      </div>
+      
+      <h1>Iniciar sesión</h1>
+      <p class="subtitle">Ingresá tu email y contraseña</p>
+      
+      <p data-message-box class="error" style="display:none;"></p>
+
+      <form action="login.php" method="POST">
+        <div class="form-field">
+          <label for="email">Email o Usuario</label>
+          <input 
+            type="text" 
+            id="email" 
+            name="email" 
+            placeholder="tu@email.com"
+            autocomplete="email"
+            required>
+        </div>
+        <div class="form-field">
+          <label for="password">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="••••••••"
+            autocomplete="current-password"
+            required>
+        </div>
+        <button class="btn primary" type="submit">Ingresar</button>
+      </form>
+      
+      <div class="divider">o</div>
+      
+      <div class="secondary-link">
+        ¿No tenés cuenta? <a href="registro.html">Crear cuenta</a>
+      </div>
+      
+      <div class="secondary-link" style="margin-top: .5rem;">
+        <a href="index.html" style="color: var(--muted);">← Volver al inicio</a>
+      </div>
+    </main>
+    
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const msgBox = document.querySelector('[data-message-box]');
+      
+      if (params.has('error')) {
+        const errorCode = params.get('error');
+        let msg = '';
+        
+        switch(errorCode) {
+          case '1': 
+            msg = 'Email/usuario o contraseña incorrectos.'; 
+            break;
+          case '2': 
+            msg = 'Error de conexión. Intenta nuevamente.'; 
+            break;
+          case 'session': 
+            msg = 'Tu sesión expiró. Por favor, ingresá nuevamente.'; 
+            break;
+          default: 
+            msg = 'Ocurrió un error. Intenta nuevamente.';
+        }
+        
+        msgBox.textContent = msg;
+        msgBox.style.display = 'block';
+      }
+      
+      if (params.has('exito')) {
+        msgBox.textContent = '¡Cuenta creada con éxito! Ya podés ingresar.';
+        msgBox.className = 'error';
+        msgBox.style.background = '#dcfce7';
+        msgBox.style.color = '#166534';
+        msgBox.style.display = 'block';
+      }
+      
+      if (params.has('logout')) {
+        msgBox.textContent = 'Sesión cerrada correctamente.';
+        msgBox.className = 'error';
+        msgBox.style.background = '#dbeafe';
+        msgBox.style.color = '#1e40af';
+        msgBox.style.display = 'block';
+      }
+    </script>
+  </body>
+</html>

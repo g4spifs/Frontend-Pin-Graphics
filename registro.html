@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PIN Graphics — Crear Cuenta</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body { display: grid; place-items: center; min-height: 100vh; }
+      .form-box {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 2rem;
+        border-radius: 1rem;
+        width: 100%;
+        max-width: 480px;
+      }
+      .form-box h1 { margin-top: 0; }
+      .form-box form { display: grid; gap: 1rem; }
+      .form-box .form-field { display: grid; gap: .25rem; }
+      .form-box button { background: var(--brand); color: #fff; }
+      .error { background: #fee2e2; color: #991b1b; padding: .75rem; border-radius: .5rem;}
+      .success { background: #dcfce7; color: #166534; padding: .75rem; border-radius: .5rem;}
+    </style>
+  </head>
+  <body>
+    
+    <main class="form-box">
+      <h1>Crear una cuenta</h1>
+      
+      <p data-message-box style="display:none;"></p>
+
+      <form action="registro.php" method="POST">
+        <div class="form-field">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+        <div class="form-field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-field">
+            <label for="password_confirm">Confirmar Contraseña</label>
+            <input type="password" id="password_confirm" name="password_confirm" required>
+        </div>
+        <button class="btn primary" type="submit">Crear cuenta</button>
+      </form>
+      <p style="margin-top: 1rem; text-align: center;">
+        ¿Ya tenés cuenta? <a href="ingreso.html">Ingresá acá</a>.
+      </p>
+    </main>
+
+    <script>
+      // Script para mostrar mensajes desde la URL
+      const params = new URLSearchParams(window.location.search);
+      const msgBox = document.querySelector('[data-message-box]');
+      
+      if (params.has('error')) {
+        let msg = '';
+        switch(params.get('error')) {
+          case '1': msg = 'Las contraseñas no coinciden.'; break;
+          case '2': msg = 'El e-mail ingresado ya está en uso.'; break;
+          case '3': msg = 'Por favor, completa todos los campos.'; break;
+          default: msg = 'Ocurrió un error desconocido.';
+        }
+        msgBox.textContent = msg;
+        msgBox.className = 'error';
+        msgBox.style.display = 'block';
+      }
+      
+      if (params.has('exito')) {
+        msgBox.textContent = '¡Cuenta creada! Ya podés ingresar.';
+        msgBox.className = 'success';
+        msgBox.style.display = 'block';
+      }
+    </script>
+  </body>
+</html>
